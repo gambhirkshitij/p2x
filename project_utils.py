@@ -36,7 +36,11 @@ def masscalc(prod_meth, electrolyzer): # input in MW
     # Water for electrolysis
     n_H2O_el = n_H2 # mol
     M_H2O_el = 0.02 # kg/mol
-    m_H2O_el = (n_H2O_el * M_H2O_el) - m_H2O_meth # kg
+    
+    if electrolyzer == 'Solide Oxide (SOEC)':
+        m_H2O_el = (1/0.8) * ((n_H2O_el * M_H2O_el) - m_H2O_meth) # kg
+    else:
+        m_H2O_el = (n_H2O_el * M_H2O_el) - m_H2O_meth # kg
 
     # Mass of oxygen produced at electrolysis
     n_O2 = n_H2 / 2 # mol
