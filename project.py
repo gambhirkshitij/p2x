@@ -251,7 +251,7 @@ if btn_run:
 
         model_df = pd.DataFrame({'Entity':
                                 ['Methanol Plant', 'Electrolyzer', 'Theoretical Power Plant',
-                                'Wind Farm - Requested', 'Wind Farm - Actual'],
+                                'Wind Farm - Requested (AC)', 'Wind Farm - Actual (AC)'],
                             'Capacity (MW)':
                                 [input_prod_meth, mass_calculations[6]/1e3, mass_calculations[7]/1e3,
                                 input_wind_cap, actual_wind_capacity/1e3]})
@@ -295,6 +295,9 @@ if btn_run:
             with meta_col1:
                 st.markdown("Plant Capacity")
                 st.write(model_df)
+                st.write(f"DC Wind Power Requested: {round(tot_DC_pwr_req/1000,2)} MW")
+                st.write(f"Max Yearly Methanol Production: {mass_calculations[0] * 8760 / 1000} t")
+                st.write(f"Max Yearly Hydrogen Production: {mass_calculations[1] * 8760 / 1000} t")
             with meta_col2:
                 st.markdown("Wind Farm Quantities")
                 st.write(wind_df)
