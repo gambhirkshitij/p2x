@@ -307,6 +307,7 @@ if btn_run:
         ###
 
         with st.container():
+            
 
             with yearly_col1:
 
@@ -331,6 +332,10 @@ if btn_run:
                 if select_oxy == 'On':
                     st.metric('Cost of Methanol w. Oxy-Fuel Combustion',
                     f"{round(meth_cost_oxy,2)} DKK pr. kg") 
+
+                st.metric('Current Methanol LCOE', "5.97 DKK pr. kg")
+
+            
 
 
         ####
