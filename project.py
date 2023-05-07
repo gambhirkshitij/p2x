@@ -220,10 +220,10 @@ else:
 
 exp_chart_col1, exp_chart_col2, exp_chart_col3 = section_expenditure.columns(3)
 
-# Sources Section
-section_sources = st.expander('Sources', expanded = False)
-sources_placeholder = section_sources.empty()
-sources_placeholder.info('Input data and run simulation first.')
+# # Sources Section
+# section_sources = st.expander('Sources', expanded = False)
+# sources_placeholder = section_sources.empty()
+# sources_placeholder.info('Input data and run simulation first.')
 
 if btn_run:
     if sim_error: # If any unimplemented functions
@@ -262,7 +262,7 @@ if btn_run:
         if select_simulation_range == 'Custom':
             custom_placeholder.empty()
         expenditure_placeholder.empty()
-        sources_placeholder.empty()
+        #sources_placeholder.empty()
         
         map_df = pd.DataFrame({'lat': [input_lat], 'lon': [input_lon]})
 
@@ -534,59 +534,59 @@ if btn_run:
                     st.pyplot(fig1, transparent = True)
                 
 
-        capex_sources = pd.DataFrame(
-            {
-                'Item': ['Alkaline Electrolysis Cell', 'Wind Turbine', 'Methanol Synthesis', 
-                'Transportation of H2', 'Transportation of CO2'],
-                'Cost': ['8625', '22500', '967.25', 'Variable', '29.25'],
-                'Unit': ['DKK/kW', 'DKK/kW', 'DKK/kg CH3OH', 'EUR/MW/m', 'DKK/km/[t CO2/h]'],
-                'Link': ['https://www.sciencedirect.com/science/article/pii/S0306261920301847?fbclid=IwAR2pv3To7ZoD9Xr3ne_kK3q2QTN0CCzPHf0viq4CPM31gk1tqKsWaL2gS5A#b0395',
-                         'https://drive.google.com/file/d/1kxPXXhv-lPEjeB0gClNlMlsfaCGcyMqw/view?usp=sharing',
-                        'https://www.researchgate.net/publication/330501119_Technoeconomic_Assessment_of_Methanol_Synthesis_via_CO2_Hydrogenation',
-                        'Energistyrelsen Teknologikatalog - Transport af Energi',
-                        'Energistyrelsen Teknologikatalog - Transport af Energi']
-            }
-        )
+        # capex_sources = pd.DataFrame(
+        #     {
+        #         'Item': ['Alkaline Electrolysis Cell', 'Wind Turbine', 'Methanol Synthesis', 
+        #         'Transportation of H2', 'Transportation of CO2'],
+        #         'Cost': ['8625', '22500', '967.25', 'Variable', '29.25'],
+        #         'Unit': ['DKK/kW', 'DKK/kW', 'DKK/kg CH3OH', 'EUR/MW/m', 'DKK/km/[t CO2/h]'],
+        #         'Link': ['https://www.sciencedirect.com/science/article/pii/S0306261920301847?fbclid=IwAR2pv3To7ZoD9Xr3ne_kK3q2QTN0CCzPHf0viq4CPM31gk1tqKsWaL2gS5A#b0395',
+        #                  'https://drive.google.com/file/d/1kxPXXhv-lPEjeB0gClNlMlsfaCGcyMqw/view?usp=sharing',
+        #                 'https://www.researchgate.net/publication/330501119_Technoeconomic_Assessment_of_Methanol_Synthesis_via_CO2_Hydrogenation',
+        #                 'Energistyrelsen Teknologikatalog - Transport af Energi',
+        #                 'Energistyrelsen Teknologikatalog - Transport af Energi']
+        #     }
+        # )
 
-        opex_sources = pd.DataFrame(
-            {
-                'Item': ['Water', 'Tranportation of CO2'],
-                'Cost': ['0.5232', '150'],
-                'Unit': ['DKK/kg H2', 'DKK/[t CO2/h]/yr/km'],
-                'Link': ['https://theicct.org/sites/default/files/publications/final_icct2020_assessment_of%20_hydrogen_production_costs%20v2.pdf',
-                         'Energistyrelsen Teknologikatalog - Transport af Energi ']
-            }
-        )
+        # opex_sources = pd.DataFrame(
+        #     {
+        #         'Item': ['Water', 'Tranportation of CO2'],
+        #         'Cost': ['0.5232', '150'],
+        #         'Unit': ['DKK/kg H2', 'DKK/[t CO2/h]/yr/km'],
+        #         'Link': ['https://theicct.org/sites/default/files/publications/final_icct2020_assessment_of%20_hydrogen_production_costs%20v2.pdf',
+        #                  'Energistyrelsen Teknologikatalog - Transport af Energi ']
+        #     }
+        # )
 
-        eta_sources = pd.DataFrame(
-            {
-                'Item': ['Hydrogen', 'Wind Turbine Power Curves'],
-                'Value': ['82', 'Variable'],
-                'Unit': ['%', '%'],
-                'Link': ['https://drive.google.com/file/d/1kxPXXhv-lPEjeB0gClNlMlsfaCGcyMqw/view?usp=sharing',
-                         'https://nrel.github.io/turbine-models/Offshore.html?fbclid=IwAR0XY8kYWna7OE2bsqf3aVpF84MDXgvuvbnlwwb_-jYjanWQTHkUs5wMx_I'] 
-            }
-        )
+        # eta_sources = pd.DataFrame(
+        #     {
+        #         'Item': ['Hydrogen', 'Wind Turbine Power Curves'],
+        #         'Value': ['82', 'Variable'],
+        #         'Unit': ['%', '%'],
+        #         'Link': ['https://drive.google.com/file/d/1kxPXXhv-lPEjeB0gClNlMlsfaCGcyMqw/view?usp=sharing',
+        #                  'https://nrel.github.io/turbine-models/Offshore.html?fbclid=IwAR0XY8kYWna7OE2bsqf3aVpF84MDXgvuvbnlwwb_-jYjanWQTHkUs5wMx_I'] 
+        #     }
+        # )
 
-        other_sources = pd.DataFrame({
-            'Item': ['Wind Speed', 'Electricity Spot Price'],
-            'Size': ['Variable', 'Variable'],
-            'Unit': ['m/s', 'DKK/kWh/h'],
-            'Link': ['https://www.renewables.ninja/',
-                     'https://www.energidataservice.dk/']
-        })
+        # other_sources = pd.DataFrame({
+        #     'Item': ['Wind Speed', 'Electricity Spot Price'],
+        #     'Size': ['Variable', 'Variable'],
+        #     'Unit': ['m/s', 'DKK/kWh/h'],
+        #     'Link': ['https://www.renewables.ninja/',
+        #              'https://www.energidataservice.dk/']
+        # })
 
-        section_sources.write('CAPEX Sources')
-        section_sources.write(capex_sources)
+        # section_sources.write('CAPEX Sources')
+        # section_sources.write(capex_sources)
 
-        section_sources.write('OPEX Sources')
-        section_sources.write(opex_sources)
+        # section_sources.write('OPEX Sources')
+        # section_sources.write(opex_sources)
 
-        section_sources.write('Efficiencies Sources')
-        section_sources.write(eta_sources)
+        # section_sources.write('Efficiencies Sources')
+        # section_sources.write(eta_sources)
 
-        section_sources.write('Other Sources')
-        section_sources.write(other_sources)
+        # section_sources.write('Other Sources')
+        # section_sources.write(other_sources)
 
 
 
